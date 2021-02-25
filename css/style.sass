@@ -1,3 +1,6 @@
+@import "variables"
+@import "mixins"
+
 *
   margin: 0
   padding: 0
@@ -7,7 +10,7 @@ html
   height: 100%
 
 body
-  height: inherit
+  min-height: 100%
   display: flex
   align-items: center
   justify-content: center
@@ -15,35 +18,12 @@ body
   font-family: 'Roboto', sans-serif
   background-color: #F5F4F2
 
-@mixin status
-  width: fit-content
-  padding: 8px 16px 8px 36px
-  position: relative
-  font-weight: 600
-  border: 0
-  outline: 0
-  cursor: pointer
-  border-radius: 22px
-
-$dark: #383736
-$light-gray: #989691
-$red: #EB4B51
-$light-red: #FAF0F0
-$green: #64B851
-$light-green: #F2FAF0
-$blue: #2794DB
-$yellow-default: #FAC62D
-$yellow-hover: #F0B505
-$yellow-active: #E1AB08
-$gray-hover: #F5F4F2
-$gray-active: #E7E4DE
-$dark-gray: #383736
-
 ._marked-blue
   font-weight: 500
   color: $blue
 
 ._marked-red
+  margin-left: 4px
   font-weight: 500
   color: $red
 
@@ -137,7 +117,7 @@ $dark-gray: #383736
       &__button
         display: block
         margin-top: 22px
-        padding: 12px 50px 12px 75px
+        padding: 12px 50px 12px 50px
         position: relative
         text-decoration: none
         text-align: center
@@ -146,19 +126,18 @@ $dark-gray: #383736
         border-radius: 6px
         background-color: $yellow-default
         color: $dark
+        & .btn-icon
+          width: 16px
+          height: 16px
+          display: inline-block
+          margin-right: 10px
+          vertical-align: middle
+          background-image: url("../img/svg/key-icon.svg")
+          background-repeat: no-repeat
         &:hover
           background-color: $yellow-hover
         &:active
           background-color: $yellow-active
-        &:before
-          content: ''
-          width: 13px
-          height: 13px
-          position: absolute
-          left: 20%
-          top: 50%
-          transform: translateY(-50%)
-          background-image: url(../img/svg/key-icon.svg)
   & .close__button
     width: 28px
     height: 28px
@@ -191,6 +170,8 @@ $dark-gray: #383736
       transform: translate(-50%, -50%) rotate(-45deg)
     &:after
       transform:  translate(-50%, -50%) rotate(45deg)
+
+
 
 /* Media Queries */
 @media screen and (max-width: 1270px)
@@ -265,7 +246,7 @@ $dark-gray: #383736
 
 @media all and (max-width: 680px)
   .card__wrapper
-    min-height: 720px
+    min-height: unset
     padding: 15px
     justify-content: center
     flex-direction: column
@@ -288,8 +269,11 @@ $dark-gray: #383736
 @media all and (max-width: 420px)
   html
     font-size: 15px
-  .card__wrapper .card-order__button
-    font-size: .8rem
+  body
+    padding: 15px
+  .card__wrapper
+    & .card-order__button
+      font-size: .8rem
   .card-order
     &__button:before
       left: 24% !important
