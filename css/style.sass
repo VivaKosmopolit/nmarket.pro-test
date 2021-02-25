@@ -13,10 +13,11 @@ body
   min-height: 100%
   display: flex
   align-items: center
+  flex-direction: column
   justify-content: center
   padding: 20px
   font-family: 'Roboto', sans-serif
-  background-color: #F5F4F2
+  background-color: $bg-color
 
 ._marked-blue
   font-weight: 500
@@ -39,6 +40,7 @@ body
 
 .card
   width: 1200px
+  margin: 5px 0
   box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.04)
   &__wrapper
     display: flex
@@ -49,7 +51,7 @@ body
     padding: 15px
     position: relative
     border-radius: 8px
-    background-color: #fff
+    background-color: $card-color
     & .card-info
       margin-right: 10%
       &__title
@@ -105,7 +107,7 @@ body
         left: -10%
         top: 50%
         transform: translateY(-50%)
-        background-color: #F0EEEB
+        background-color: $line-decor
       &__text
         line-height: 20px
         font-size: .875rem
@@ -127,7 +129,7 @@ body
         border-radius: 6px
         background-color: $yellow-default
         color: $dark
-        transition: .3s all
+        transition: background-color .3s ease-out
         & .btn-icon
           width: 12.3px
           height: 12.3px
@@ -141,6 +143,7 @@ body
           background-color: $yellow-hover
         &:active
           background-color: $yellow-active
+
   & .close__button
     width: 28px
     height: 28px
@@ -152,7 +155,7 @@ body
     background: transparent
     outline: none
     cursor: pointer
-    transition: .3s all
+    transition: background-color .3s ease-out
     &:hover
       background-color: $gray-hover
     &:hover:before, &:hover:after
@@ -169,7 +172,7 @@ body
       top: 50%
       left: 50%
       border-radius: 5px
-      background-color: #C4C4C4
+      background-color: $cross-color
       transition: .3s all
     &:before
       transform: translate(-50%, -50%) rotate(-45deg)
