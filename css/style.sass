@@ -1,0 +1,297 @@
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+html
+  height: 100%
+
+body
+  height: inherit
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 20px
+  font-family: 'Roboto', sans-serif
+  background-color: #F5F4F2
+
+@mixin status
+  width: fit-content
+  padding: 8px 16px 8px 36px
+  position: relative
+  font-weight: 600
+  border: 0
+  outline: 0
+  cursor: pointer
+  border-radius: 22px
+
+$dark: #383736
+$light-gray: #989691
+$red: #EB4B51
+$light-red: #FAF0F0
+$green: #64B851
+$light-green: #F2FAF0
+$blue: #2794DB
+$yellow-default: #FAC62D
+$yellow-hover: #F0B505
+$yellow-active: #E1AB08
+$gray-hover: #F5F4F2
+$gray-active: #E7E4DE
+$dark-gray: #383736
+
+._marked-blue
+  font-weight: 500
+  color: $blue
+
+._marked-red
+  font-weight: 500
+  color: $red
+
+.status_approved
+  @include status
+  background-color: $light-green
+  color: $green
+
+.status_denied
+  @include status
+  background-color: $light-red
+  color: $red
+
+.card
+  width: 1200px
+  &__wrapper
+    display: flex
+    align-items: center
+    justify-content: space-around
+    min-height: 225px
+    max-height: 700px
+    flex-wrap: wrap
+    padding: 15px
+    position: relative
+    border-radius: 8px
+    background-color: #fff
+    & .card-info
+      margin-right: 10%
+      &__title
+        margin-bottom: 15px
+        font-size: 1.5rem
+        color: $dark
+      & .card-list
+        max-width: 350px
+        display: grid
+        grid-template-columns: repeat(3, 100px)
+        grid-template-rows: repeat(2, 40px)
+        grid-gap: 10px 40px
+        list-style: none
+      & .parameter-title
+        font-size: .75rem
+        color: $light-gray
+      & .parameter-value
+        font-weight: 500
+        font-size: .875rem
+        color: $dark
+      &__status
+        margin-top: 10px
+        display: flex
+        & .status
+          font-size: .75rem
+        &>:first-child
+          margin-right: 16px
+        & .status_approved, & .status_denied
+          &:before
+            content: ''
+            position: absolute
+            top: 50%
+            transform: translateY(-50%)
+        & .status_approved:before
+          width: 12px
+          height: 9px
+          left: 7%
+          background-image: url(../img/svg/check-i.svg)
+        & .status_denied:before
+          width: 11px
+          height: 11px
+          left: 5%
+          background-image: url(../img/svg/cross-i.svg)
+    & .card-order
+      position: relative
+      min-height: 160px
+      &:before
+        content: ''
+        position: absolute
+        width: 1px
+        height: 100%
+        left: -10%
+        top: 50%
+        transform: translateY(-50%)
+        background-color: #F0EEEB
+      &__text
+        line-height: 20px
+        font-size: .875rem
+        color: $light-gray
+      &__price
+        margin: 2px 0 12px 0
+        font-weight: bold
+        font-size: 1.5rem
+        color: $dark
+      &__button
+        display: block
+        margin-top: 22px
+        padding: 12px 50px 12px 75px
+        position: relative
+        text-decoration: none
+        text-align: center
+        font-size: .875rem
+        font-weight: 500
+        border-radius: 6px
+        background-color: $yellow-default
+        color: $dark
+        &:hover
+          background-color: $yellow-hover
+        &:active
+          background-color: $yellow-active
+        &:before
+          content: ''
+          width: 13px
+          height: 13px
+          position: absolute
+          left: 20%
+          top: 50%
+          transform: translateY(-50%)
+          background-image: url(../img/svg/key-icon.svg)
+  & .close__button
+    width: 28px
+    height: 28px
+    position: absolute
+    top: 16px
+    right: 16px
+    border: 0
+    border-radius: 4px
+    background: transparent
+    outline: none
+    cursor: pointer
+    &:hover
+      background-color: $gray-hover
+    &:hover:before, &:hover:after
+      background-color: $dark-gray
+    &:active
+      background-color: $gray-active
+    &:active:before, &:active:after
+      background-color: $dark-gray
+    &:before, &:after
+      content: ''
+      position: absolute
+      width: 19px
+      height: 2px
+      top: 50%
+      left: 50%
+      border-radius: 5px
+      background-color: #C4C4C4
+    &:before
+      transform: translate(-50%, -50%) rotate(-45deg)
+    &:after
+      transform:  translate(-50%, -50%) rotate(45deg)
+
+/* Media Queries */
+@media screen and (max-width: 1270px)
+  .card__wrapper
+    padding: 15px
+    & .card-info
+      margin-right: 5%
+      margin-left: 5%
+
+@media screen and (max-width: 1195px)
+  .card__wrapper
+    padding: 15px
+  .card-info
+    margin-right: 0
+    margin-left: 2%
+
+
+@media all and (max-width: 1040px)
+  .card-info__status
+    flex-direction: column
+    &>:first-child
+      margin-bottom: 10px
+  .card__wrapper .card-info
+    margin-left: 0
+  .card-order
+    height: 250px
+    display: flex
+    flex-direction: column
+    & .card-order__text:last-of-type
+      flex-grow: 1
+
+@media all and (max-width: 925px)
+  .card__wrapper
+    min-height: 315px
+    & .card-info .card-list
+      grid-template-columns: repeat(2, 100px)
+      grid-template-rows: repeat(3, 40px)
+
+@media all and (max-width: 885px)
+  .card
+    &__wrapper
+      padding: 30px
+      & .card-icon
+        align-self: baseline
+        margin-right: 5%
+      & .card-info
+        margin-bottom: 50px
+        margin-right: 0
+      & .card-order
+        width: 100%
+        height: 160px
+        &:before
+          width: 100%
+          height: 1px
+          left: 50%
+          top: -15%
+          transform: translateX(-50%)
+        &__button:before
+          left: 38%
+          top: 50%
+          transform: translateY(-50%)
+  .card-info__status
+    flex-direction: row
+    &>:first-child
+      margin-bottom: 0
+    & .card-order__text:last-of-type
+      flex-grow: 0
+
+@media all and (max-width: 755px)
+  .card-order__button:before
+    left: 35% !important
+
+@media all and (max-width: 680px)
+  .card__wrapper
+    min-height: 720px
+    padding: 15px
+    justify-content: center
+    flex-direction: column
+    & .card-icon
+      align-self: auto
+      margin-right: 0
+      margin-bottom: 25px
+  .card-info__status
+    flex-direction: column
+    &>:first-child
+      margin-bottom: 8px
+
+@media all and (max-width: 590px)
+  .card-order
+    &__button:before
+      left: 30% !important
+      top: 50%
+      transform: translateY(-50%)
+
+@media all and (max-width: 420px)
+  html
+    font-size: 15px
+  .card__wrapper .card-order__button
+    font-size: .8rem
+  .card-order
+    &__button:before
+      left: 24% !important
+      top: 50%
+      transform: translateY(-50%)
