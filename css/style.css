@@ -9,11 +9,12 @@ html {
 }
 
 body {
+  width: 100%;
   min-height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
   padding: 20px;
   font-family: "Roboto", sans-serif;
   background-color: #F5F4F2;
@@ -55,9 +56,10 @@ body {
 }
 
 .card {
-  width: 1200px;
+  max-width: 1200px;
+  width: 100%;
   margin: 5px 0;
-  box-shadow: 0px 2px 24px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.04);
 }
 .card__wrapper {
   display: flex;
@@ -286,7 +288,7 @@ body {
   }
   .card__wrapper .card-order {
     width: 100%;
-    height: 160px;
+    height: auto;
   }
   .card__wrapper .card-order:before {
     width: 100%;
@@ -294,11 +296,6 @@ body {
     left: 50%;
     top: -15%;
     transform: translateX(-50%);
-  }
-  .card__wrapper .card-order__button:before {
-    left: 38%;
-    top: 50%;
-    transform: translateY(-50%);
   }
 
   .card-info__status {
@@ -311,15 +308,9 @@ body {
     flex-grow: 0;
   }
 }
-@media all and (max-width: 755px) {
-  .card-order__button:before {
-    left: 35% !important;
-  }
-}
 @media all and (max-width: 680px) {
   .card__wrapper {
     min-height: unset;
-    padding: 15px;
     justify-content: center;
     flex-direction: column;
   }
@@ -337,13 +328,6 @@ body {
     margin-bottom: 8px;
   }
 }
-@media all and (max-width: 590px) {
-  .card-order__button:before {
-    left: 30% !important;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
 @media all and (max-width: 420px) {
   html {
     font-size: 15px;
@@ -356,11 +340,13 @@ body {
   .card__wrapper .card-order__button {
     font-size: 0.8rem;
   }
-
-  .card-order__button:before {
-    left: 24% !important;
-    top: 50%;
-    transform: translateY(-50%);
+}
+@media all and (max-width: 340px) {
+  .card__wrapper {
+    padding: 25px;
+  }
+  .card__wrapper .card-order__button {
+    font-size: 0.7rem;
   }
 }
 
