@@ -20,17 +20,6 @@ body {
   background-color: #F5F4F2;
 }
 
-._marked-blue {
-  font-weight: 500;
-  color: #2794DB;
-}
-
-._marked-red {
-  margin-left: 4px;
-  font-weight: 500;
-  color: #EB4B51;
-}
-
 .status_approved {
   width: fit-content;
   padding: 9px 16px 9px 36px;
@@ -145,6 +134,15 @@ body {
   font-size: 0.875rem;
   color: #989691;
 }
+.card__wrapper .card-order__text_marked-blue {
+  font-weight: 500;
+  color: #2794DB;
+}
+.card__wrapper .card-order__text_marked-red {
+  margin-left: 4px;
+  font-weight: 500;
+  color: #EB4B51;
+}
 .card__wrapper .card-order__price {
   margin: 5px 0 15px 0;
   font-weight: bold;
@@ -190,7 +188,7 @@ body {
   border: 0;
   border-radius: 4px;
   background: transparent;
-  outline: none;
+  outline-color: transparent;
   cursor: pointer;
   transition: background-color 0.3s ease-out;
 }

@@ -20,15 +20,6 @@ body
   font-family: 'Roboto', sans-serif
   background-color: $bg-color
 
-._marked-blue
-  font-weight: 500
-  color: $blue
-
-._marked-red
-  margin-left: 4px
-  font-weight: 500
-  color: $red
-
 .status_approved
   @include status
   background-color: $light-green
@@ -114,6 +105,13 @@ body
         line-height: 20px
         font-size: .875rem
         color: $light-gray
+        &_marked-blue
+          font-weight: 500
+          color: $blue
+        &_marked-red
+          margin-left: 4px
+          font-weight: 500
+          color: $red
       &__price
         margin: 5px 0 15px 0
         font-weight: bold
@@ -155,7 +153,7 @@ body
     border: 0
     border-radius: 4px
     background: transparent
-    outline: none
+    outline-color: transparent
     cursor: pointer
     transition: background-color .3s ease-out
     &:hover
