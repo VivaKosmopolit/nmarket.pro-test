@@ -1,0 +1,64 @@
+@import "../helpers/ui-typography-mixins";
+@import "../ui/ui-colors";
+
+@mixin button-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: $gray-300;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover,
+  &:focus {
+    color: $gray-750;
+  }
+
+  &:hover {
+    background-color: $gray-40;
+  }
+
+  &:active {
+    background-color: $gray-100;
+  }
+}
+
+@mixin ui-button($type: default, $theme: primary) {
+  @include ui-p($weight: 500);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 24px;
+  column-gap: 8px;
+  color: $gray-750;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: .3s;
+
+  @if $theme == primary {
+    background-color: $primary-500;
+
+    &:hover {
+      background-color: $primary-700;
+    }
+
+    &:active {
+      background-color: $primary-800;
+    }
+  }
+
+  &:disabled {
+    background-color: $gray-40;
+    border-color: $gray-40;
+    color: $gray-200;
+    pointer-events: none;
+  }
+}

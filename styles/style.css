@@ -1,0 +1,303 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  row-gap: 12px;
+  padding: 20px;
+  background-color: #F5F4F2;
+}
+@media screen and (max-width: 575px) {
+  .cards-container {
+    padding: 8px;
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 226px;
+  padding: 24px 32px 24px 24px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, 0.04);
+}
+@media screen and (max-width: 915px) {
+  .card {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 575px) {
+  .card {
+    padding: 16px 20px 20px;
+  }
+}
+.card_disabled .card__image {
+  opacity: 0.2;
+}
+.card_disabled .card__apartment-title,
+.card_disabled .card__item-title {
+  color: #E7E4DE;
+}
+.card_disabled .card__item-value,
+.card_disabled .card__order-price {
+  color: #CCCAC5;
+}
+.card_disabled .card__order-text {
+  color: #E7E4DE;
+}
+.card_disabled .card__order-text_marked-blue, .card_disabled .card__order-text_marked-red {
+  color: #CCCAC5;
+}
+.card__left-column {
+  display: flex;
+  column-gap: 32px;
+}
+@media screen and (max-width: 915px) {
+  .card__left-column {
+    margin-bottom: 24px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .card__left-column {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 560px) {
+  .card__image-wrapper {
+    margin: 0 auto;
+  }
+}
+.card__apartment-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  margin-bottom: 8px;
+  color: #383736;
+}
+.card__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 46px;
+  margin-bottom: 18px;
+}
+@media screen and (max-width: 1050px) {
+  .card__list {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+  }
+}
+.card__item-title {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #989691;
+}
+.card__item-value {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #383736;
+}
+.card__list-item {
+  display: flex;
+  flex-direction: column;
+}
+.card__status-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+.card__status-wrapper .status_success {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  position: relative;
+  width: fit-content;
+  padding: 8px 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 22px;
+  padding: 8px 16px 8px 36px;
+  position: relative;
+  color: #64B851;
+  background-color: #F2FAF0;
+}
+.card__status-wrapper .status_success:before {
+  background-image: url("./../img/icons/svg/check-icon.svg");
+}
+.card__status-wrapper .status_success:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.card__status-wrapper .status_error {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  position: relative;
+  width: fit-content;
+  padding: 8px 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 22px;
+  padding: 8px 16px 8px 36px;
+  color: #EB4B51;
+  background-color: #FAF0F0;
+}
+.card__status-wrapper .status_error:before {
+  background-image: url("./../img/icons/svg/cross-icon.svg");
+}
+.card__status-wrapper .status_error:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.card__right-column {
+  margin-left: auto;
+}
+@media screen and (max-width: 915px) {
+  .card__right-column {
+    margin-left: 0;
+  }
+}
+.card__order-section {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-left: 48px;
+  padding-left: 42px;
+  border-left: 1px solid #F0EEEB;
+}
+@media screen and (min-width: 440px) and (max-width: 1120px) {
+  .card__order-section {
+    min-width: 310px;
+  }
+}
+@media screen and (max-width: 915px) {
+  .card__order-section {
+    margin-left: 0;
+    padding-top: 24px;
+    padding-left: 0;
+    border-top: 1px solid #F0EEEB;
+    border-left: 0;
+  }
+}
+.card__order-header {
+  margin-bottom: 22px;
+  padding-right: 30px;
+}
+.card__order-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #989691;
+}
+.card__order-text_marked-blue {
+  font-weight: 500;
+  color: #2794DB;
+}
+.card__order-text_marked-red {
+  font-weight: 500;
+  color: #EB4B51;
+}
+.card__order-price {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px;
+  margin-bottom: 12px;
+  color: #383736;
+}
+.card__order-button {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 24px;
+  column-gap: 8px;
+  color: #383736;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: #FAC62D;
+  margin-top: auto;
+}
+.card__order-button:hover {
+  background-color: #F0B505;
+}
+.card__order-button:active {
+  background-color: #E1AB08;
+}
+.card__order-button:disabled {
+  background-color: #F5F4F2;
+  border-color: #F5F4F2;
+  color: #CCCAC5;
+  pointer-events: none;
+}
+.card__close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  color: #B2B0AB;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.card__close-button:hover, .card__close-button:focus {
+  color: #383736;
+}
+.card__close-button:hover {
+  background-color: #F5F4F2;
+}
+.card__close-button:active {
+  background-color: #E7E4DE;
+}
+.card__close-button_close-position {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+/*# sourceMappingURL=style.css.map */

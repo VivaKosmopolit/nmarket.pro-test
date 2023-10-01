@@ -1,0 +1,47 @@
+@import "./ui-typography-mixins";
+@import "./../ui/ui-colors";
+
+@mixin status($type: default, $theme: success) {
+  @include ui-caption($weight: 500);
+  position: relative;
+  width: fit-content;
+  padding: 8px 16px;
+  border: 0;
+  outline: 0;
+  border-radius: 22px;
+
+  @if $type == with-icon {
+    padding: 8px 16px 8px 36px;
+  }
+
+  @if $theme == success {
+    position: relative;
+    color: $success-500;
+    background-color: $success-20;
+
+    &:before {
+      background-image: url("./../img/icons/svg/check-icon.svg");
+    }
+  }
+
+  @else if($theme == error) {
+    color: $error-500;
+    background-color: $error-20;
+
+    &:before {
+      background-image: url("./../img/icons/svg/cross-icon.svg");
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

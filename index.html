@@ -6,62 +6,141 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/mixins.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/ui/_ui-colors.scss">
     <title>Тестовое</title>
 </head>
 <body>
-    <div class="card">
-        <div class="card__wrapper">
-            <div class="card-icon">
-                <img src="img/svg/flat-img.svg" alt="flat-img">
-            </div>
-            <div class="card-info">
-                <h2 class="card-info__title">2-к квартира</h2>
-                <ul class="card-list">
-                    <li class="card-list__item">
-                        <div class="parameter-title">Этаж</div>
-                        <div class="parameter-value">3 из 19</div>
-                    </li>
-                    <li class="card-list__item">
-                        <div class="parameter-title">Высота потолков</div>
-                        <div class="parameter-value">3,2 м</div>
-                    </li>
-                    <li class="card-list__item">
-                        <div class="parameter-title">Отделка</div>
-                        <div class="parameter-value">Предчистовая</div>
-                    </li>
-                    <li class="card-list__item">
-                        <div class="parameter-title">Общая площадь</div>
-                        <div class="parameter-value">32,24 м²</div>
-                    </li>
-                    <li class="card-list__item">
-                        <div class="parameter-title">Жилая площадь</div>
-                        <div class="parameter-value">22,24 м²</div>
-                    </li>
-                    <li class="card-list__item">
-                        <div class="parameter-title">Площадь кухни</div>
-                        <div class="parameter-value">14,24 м²</div>
-                    </li>
-                </ul>
-                <div class="card-info__status">
-                    <div class="status status_approved">Вы были на просмотре</div>
-                    <div class="status status_denied"> Дом аккредитован другим банком</div>
+    <main class="cards-container">
+        <div class="card">
+            <button type="button" class="card__close-button card__close-button_close-position">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                    <path fill="currentColor" fill-rule="evenodd" d="M6.795 5.308a1.052 1.052 0 0 0-1.487 1.487L10.513 12l-5.205 5.205a1.052 1.052 0 1 0 1.487 1.487L12 13.487l5.205 5.205a1.052 1.052 0 0 0 1.487-1.487L13.487 12l5.205-5.205a1.051 1.051 0 1 0-1.487-1.487L12 10.513 6.795 5.308Z" clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <div class="card__left-column">
+                <div class="card__image-wrapper">
+                    <img src="img/apartment-plan/apart-plan1.svg" alt="apartment-image" class="card__image">
+                </div>
+                <div class="card__apartment-info">
+                    <h2 class="card__apartment-title">
+                        2-к квартира
+                    </h2>
+                    <ul class="card__list">
+                        <li class="card__list-item">
+                            <span class="card__item-title">Этаж</span>
+                            <span class="card__item-value">3 из 19</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Высота потолков</span>
+                            <span class="card__item-value">3,2 м</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Отделка</span>
+                            <span class="card__item-value">Предчистовая</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Общая площадь</span>
+                            <span class="card__item-value">32,24 м²</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Жилая площадь</span>
+                            <span class="card__item-value">22,24 м²</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Площадь кухни</span>
+                            <span class="card__item-value">14,24 м²</span>
+                        </li>
+                    </ul>
+                    <div class="card__status-wrapper">
+                        <span class="status status_success">Вы были на просмотре</span>
+                        <span class="status status_error"> Дом аккредитован другим банком</span>
+                    </div>
                 </div>
             </div>
-            <div class="card-order">
-                <div class="card-order__text">
-                    Ваша цена по брони до <span class="card-order__text_marked-blue">19 сентября</span>
+            <div class="card__right-column">
+                <div class="card__order-section">
+                    <div class="card__order-header">
+                        <div class="card__order-text">
+                            Ваша цена по брони до&nbsp;<span class="card__order-text_marked-blue">19&nbsp;сентября</span>
+                        </div>
+                        <div class="card__order-price">3 312 666 ₽</div>
+                        <div class="card__order-text">
+                            Текущая цена у застройщика<br> дороже на <span class="card__order-text_marked-red">324 825 ₽</span>
+                        </div>
+                    </div>
+                    <button type="button" class="card__order-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                            <path fill="currentColor" fill-rule="evenodd" d="M9.683 7.563a4 4 0 1 0-2.122 2.12l1.127 1.128a.25.25 0 0 0 .226.069l1.269-.254a.25.25 0 0 1 .294.294l-.207 1.031a.25.25 0 0 0 .294.295l1.034-.206a.25.25 0 0 1 .293.294l-.253 1.27a.25.25 0 0 0 .068.225l.141.141a.5.5 0 0 0 .283.142l.99.141a1 1 0 0 0 1.132-1.131l-.142-.99a.5.5 0 0 0-.141-.283L9.683 7.563ZM5.5 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd"/>
+                        </svg>
+                        Выбрать для покупки
+                    </button>
                 </div>
-                <div class="card-order__price">3 312 666 ₽</div>
-                <div class="card-order__text">
-                    Текущая цена у застройщика<br> дороже на <span class="card-order__text_marked-red">324 825 ₽</span>
-                </div>
-                <a href="#" class="card-order__button"><span class="btn-icon"></span>Выбрать для покупки</a>
             </div>
-            <button class="close__button"></button>
         </div>
-    </div>
+
+        <div class="card card_disabled">
+            <button type="button" class="card__close-button card__close-button_close-position">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+                    <path fill="currentColor" fill-rule="evenodd" d="M6.795 5.308a1.052 1.052 0 0 0-1.487 1.487L10.513 12l-5.205 5.205a1.052 1.052 0 1 0 1.487 1.487L12 13.487l5.205 5.205a1.052 1.052 0 0 0 1.487-1.487L13.487 12l5.205-5.205a1.051 1.051 0 1 0-1.487-1.487L12 10.513 6.795 5.308Z" clip-rule="evenodd"/>
+                </svg>
+            </button>
+            <div class="card__left-column">
+                <div class="card__image-wrapper">
+                    <img src="img/apartment-plan/apart-plan1.svg" alt="apartment-image" class="card__image">
+                </div>
+                <div class="card__apartment-info">
+                    <h2 class="card__apartment-title">
+                        2-к квартира
+                    </h2>
+                    <ul class="card__list">
+                        <li class="card__list-item">
+                            <span class="card__item-title">Этаж</span>
+                            <span class="card__item-value">3 из 19</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Высота потолков</span>
+                            <span class="card__item-value">3,2 м</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Отделка</span>
+                            <span class="card__item-value">Предчистовая</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Общая площадь</span>
+                            <span class="card__item-value">32,24 м²</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Жилая площадь</span>
+                            <span class="card__item-value">22,24 м²</span>
+                        </li>
+                        <li class="card__list-item">
+                            <span class="card__item-title">Площадь кухни</span>
+                            <span class="card__item-value">14,24 м²</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card__right-column">
+                <div class="card__order-section">
+                    <div class="card__order-header">
+                        <div class="card__order-text">
+                            Ваша цена по брони до&nbsp;<span class="card__order-text_marked-blue">19&nbsp;сентября</span>
+                        </div>
+                        <div class="card__order-price">3 312 666 ₽</div>
+                        <div class="card__order-text">
+                            Текущая цена у застройщика<br> дороже на <span class="card__order-text_marked-red">324 825 ₽</span>
+                        </div>
+                    </div>
+                    <button type="button" class="card__order-button" disabled>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+                            <path fill="currentColor" fill-rule="evenodd" d="M9.683 7.563a4 4 0 1 0-2.122 2.12l1.127 1.128a.25.25 0 0 0 .226.069l1.269-.254a.25.25 0 0 1 .294.294l-.207 1.031a.25.25 0 0 0 .294.295l1.034-.206a.25.25 0 0 1 .293.294l-.253 1.27a.25.25 0 0 0 .068.225l.141.141a.5.5 0 0 0 .283.142l.99.141a1 1 0 0 0 1.132-1.131l-.142-.99a.5.5 0 0 0-.141-.283L9.683 7.563ZM5.5 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" clip-rule="evenodd"/>
+                        </svg>
+                        Выбрать для покупки
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
